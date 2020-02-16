@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 import { MessagesService, CustomPreloadingStrategyService } from './core';
 import { SpinnerService } from './widgets';
@@ -22,14 +22,15 @@ export class AppComponent implements OnInit, OnDestroy {
     public messagesService: MessagesService,
     public spinnerService: SpinnerService,
     private preloadingStrategy: CustomPreloadingStrategyService,
-    private titleService: Title
+    private titleService: Title,
+    private metaService: Meta
   ) { }
 
   onActivate($event: any, routerOutlet: RouterOutlet) {
     console.log('Activated Component', $event, routerOutlet);
     // another way to set titles
     this.titleService.setTitle(routerOutlet.activatedRouteData.title);
-
+    this.metaService.addTags(routerOutlet.activatedRouteData.meta);
   }
 
   onDeactivate($event: any, routerOutlet: RouterOutlet) {
