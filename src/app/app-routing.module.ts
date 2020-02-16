@@ -1,7 +1,7 @@
 import { TaskListComponent } from './tasks/components/task-list/task-list.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules, ExtraOptions } from '@angular/router';
-import { AuthGuard } from './core';
+import { Routes, RouterModule, ExtraOptions } from '@angular/router';
+import { AuthGuard, CustomPreloadingStrategyService } from './core';
 
 import { AboutComponent, PathNotFoundComponent, MessagesComponent, LoginComponent } from './layout';
 
@@ -31,7 +31,8 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+    loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
+    data: { preload: true }
   },
   {
     // The router will match this route if the URL requested
@@ -42,7 +43,7 @@ const routes: Routes = [
 ];
 
 const extraOptions: ExtraOptions = {
-  preloadingStrategy: PreloadAllModules,
+  preloadingStrategy: CustomPreloadingStrategyService,
   enableTracing: true // Makes the router log all its internal events to the console.
 };
 
