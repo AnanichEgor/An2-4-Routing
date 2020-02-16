@@ -1,6 +1,6 @@
 import { TaskListComponent } from './tasks/components/task-list/task-list.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules, ExtraOptions } from '@angular/router';
 import { AuthGuard } from './core';
 
 import { AboutComponent, PathNotFoundComponent, MessagesComponent, LoginComponent } from './layout';
@@ -41,9 +41,14 @@ const routes: Routes = [
   }
 ];
 
+const extraOptions: ExtraOptions = {
+  preloadingStrategy: PreloadAllModules,
+  enableTracing: true // Makes the router log all its internal events to the console.
+};
+
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, extraOptions),
   ],
   exports: [RouterModule]
 })
