@@ -24,6 +24,14 @@ const routes: Routes = [
     outlet: 'messages'
   },
   {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: 'users',
+    loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+  },
+  {
     // The router will match this route if the URL requested
     // doesn't match any paths for routes defined in our configuration
     path: '**',

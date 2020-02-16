@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { TasksModule } from './tasks/tasks.module';
-import { UsersModule } from './users/users.module';
-import { AdminModule } from './admin/admin.module';
 import { SpinnerModule } from './widgets/spinner/spinner.module';
 
 @NgModule({
@@ -20,8 +18,6 @@ import { SpinnerModule } from './widgets/spinner/spinner.module';
     LayoutModule,
     FormsModule,
     TasksModule,
-    UsersModule,
-    AdminModule,
     SpinnerModule.forRoot(),
     // MUST BE LAST
     AppRoutingModule,
