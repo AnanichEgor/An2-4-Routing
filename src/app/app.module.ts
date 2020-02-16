@@ -3,15 +3,13 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-
-
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { TasksModule } from './tasks/tasks.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
