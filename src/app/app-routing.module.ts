@@ -2,12 +2,16 @@ import { TaskListComponent } from './tasks/components/task-list/task-list.compon
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AboutComponent, PathNotFoundComponent, MessagesComponent } from './layout';
+import { AboutComponent, PathNotFoundComponent, MessagesComponent, LoginComponent } from './layout';
 
 const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '',
